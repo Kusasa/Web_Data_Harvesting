@@ -12,10 +12,11 @@ Last Revision:    2020-03-19
 import geopandas as gpd
 import requests
 import tkinter as tk
+#from tkinter import *
 
 #Funtion for data downloading and processing
-def processor(working_directory):
-    ws = working_directory.get()
+def processor():
+    ws = input_wd.get()
     
     #Download data from statsa url
     params = (
@@ -30,14 +31,18 @@ def processor(working_directory):
     json.to_file(ws + "/rsa_population_groups.shp")
 
 # Tkinter Interactions
-window = tk.Tk()
-window.title("StatsSA Population Groups Data Harvester")
-input_request = tk.Label(text="Working Directory: ")
-input_wd = tk.Entry()
-button = tk.Button(master=window,
-    text="Run",
-    command=processor(input_wd))
-input_request.pack()
-input_wd.pack()
-button.pack()
-window.mainloop()
+def main_screen():
+    window = tk.Tk()
+    window.title("StatsSA Population Groups Data Harvester")
+    window.geometry("500x50")
+    
+    global input_wd
+    input_wd = tk.StringVar()
+    
+    tk.Label(window, text="Please enter details below").pack()
+    tk.Label(window, text="Working Directory: ").pack(side = tk.LEFT)
+    tk.Entry(window, bd =5, width = 50, textvariable = input_wd).pack(side = tk.LEFT)
+    tk.Button(text="Run",command = processor ).pack()
+    window.mainloop()
+    
+main_screen()
