@@ -5,7 +5,7 @@ Description:      This tool harvests Stats SA Population Groups Data.
 Created By:       Kusasalethu Sithole
 Date:             2020-03-19
 Revised by:       Kusasalethu Sithole
-Last Revision:    2020-03-19
+Last Revision:    2020-04-09
 ------------------------------------------------------------------------------------------------------"""
 
 # Import modules
